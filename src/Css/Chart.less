@@ -1,0 +1,41 @@
+body {
+
+}
+
+.Chart {
+	margin: 0 auto;
+	background-color: #595959;
+	display: flex;
+	align-items: flex-end;
+	padding: 50px;
+
+	&--serie {
+		height: 100%;
+		margin: 0 30px 0 0;
+		display: inline-block;
+		flex: 1;
+		display: flex;
+		align-items: flex-end;
+		transform-origin: 0 100%;
+		animation: slideUp 0.6s;
+		position: relative;
+		border-bottom: 1px solid #c2c2c2;
+	}
+
+	&--item {
+		background-color: #62b16e;
+		display: inline-block;
+		margin: 0 1px 0 0;
+		flex: 50;
+		transition: height 1s ease-out, width 1s ease-out;
+		position: relative;
+		text-align: center;
+		border-radius: 2px 2px 0 0;
+		width: 5px;
+	}
+}
+
+@keyframes slideUp {
+	from { transform: scaleY(0); }
+	to { transform: scaleY(1); }
+}
