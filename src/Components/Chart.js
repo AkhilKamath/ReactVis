@@ -22,10 +22,10 @@ class Chart extends Component {
   }
 
   render() {
-    
-    let branches = ['Select branch','A1','A3','A4','A7','A8','B1','B2','B3','B4','B5'];
-    let branchOption = branches.map(branch => {
-      return (<option key={branch} value={branch}>{branch}</option>);
+    let brancheName = ['Select branch','Chemical Engg','Electrical Engg','Mechanical Engg','Computer Science Engg','Instrumentation Engg','MSc Biology','Msc Physics','Msc Math','Msc Chemistry','Msc Economics'];   
+    let branches = ['','A1','A3','A4','A7','A8','B1','B2','B3','B4','B5'];
+    let branchOption = branches.map((branch, index)=> {
+      return (<option key={branch} value={branch}>{brancheName[index]}</option>);
     });
     
     let data = this.state.data;
