@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Css/Column.css';
 import uuid from 'uuid';
 var count = 0;
-class Columns extends Component {
+class ColumnsSample2 extends Component {
 
   constructor(){
     super();
@@ -56,4 +56,4 @@ class Columns extends Component {
   }
 }
 
-export default Columns;
+export default ColumnsSample2;
