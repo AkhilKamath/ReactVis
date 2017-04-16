@@ -25,31 +25,33 @@ class App extends Component {
   //   console.log(data);
   // }
 
-  handleViewsOption(){
-    let view = this.refs.view.value;
+  handleColumnOption(){
     this.setState({
-      data: data,
-      view: view
+      view: "Column"
     });
-    // console.log(this.state);
+    console.log(this.state);
+  }
+
+  handleBarOption() {
+    this.setState({
+      view: "Bar"
+    });
   }
 
   render() {
-
-    let viewsName = ['Select View', 'Bar', 'Column'];
-    let viewsOptions = viewsName.map(item =>{
-      return (<option key={item} value={item}>{item}</option>) ;
-    });
-
     return (
       <div>
         <section>
           <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 1</h4>
           <p style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>
-          Priority Number {this.state.view} Chart
+          Priority Number {this.state.view} Chart <br/><br />
+          { 
+            this.state.view === 'Column' ?
+            <p>Column 1: STUDENT_NAME------Column 2: STUDENT_PR_NO</p> : ''
+          }
           </p>
-          <select className='SelectView' ref='view'>{viewsOptions}</select>
-          <button className='Button' onClick={this.handleViewsOption.bind(this)}>OK</button>
+          <button className='Button' onClick={this.handleColumnOption.bind(this)} style={{width: "150px"}}>Column View</button>
+          <button className='Button' onClick={this.handleBarOption.bind(this)} style={{width: "150px"}}>Bar View</button>
             <Chart
                 data={this.state.data}
                 view={this.state.view}
