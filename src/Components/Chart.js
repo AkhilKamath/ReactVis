@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import '../Chart.css';
+import '../Css/Chart.css';
 // var view;
 class Chart extends Component {
 
   constructor(){
     super();
     this.state = {
-      data: []
-    }
+      data: [],
+      color: []
+    };
   }
 
   selectBranch(){
@@ -16,11 +17,33 @@ class Chart extends Component {
     data = data.filter(d => {
       return d.campus_id === branch;
     });
-    // view = this.refs.view.value;
+
+    // let view = this.props.view;
+    let color = this.state.color;
+    // console.log(view);
+    // if(view === 'Bar'){
+      // for(let i = 0; i < data.length; i++)
+      // color.push([255, 30, 30]);  
+    // }
+
+    // else if (view === 'Column'){
+      for(let i = 0; i < data.length; i++){
+      let red = Math.floor(Math.random() * 255);
+      let green = Math.floor(Math.random() * 255);
+      let blue = Math.floor(Math.random() * 255);
+      color.push([ red, green, blue ]);
+    }
+    // }
+
     this.setState({
-      data: data
+      data: data,
+      color: color
     });
   }
+
+  // componentDidUpdate(){
+  //   this.setcolor();
+  // }
 
   render() {
     let brancheName = ['Select branch','Chemical Engg','Electrical Engg','Mechanical Engg','Computer Science Engg','Instrumentation Engg','MSc Biology','Msc Physics','Msc Math','Msc Chemistry','Msc Economics'];   
@@ -29,6 +52,7 @@ class Chart extends Component {
       return (<option key={branch} value={branch}>{brancheName[index]}</option>);
     });
     
+    let color = this.state.color;
     let data = this.state.data;
     let stacked = this.props.grouping === 'stacked' ? true : false;
     console.log(stacked);
@@ -70,7 +94,8 @@ class Chart extends Component {
                   // opacity: (item.bits_priority_nbr/max + .25),
                   zIndex: item.bits_priority_nbr,
                   opacity: stacked ? (1 - (item.bits_priority_nbr/max)) + .10 : 1,
-                  height: size + '%'
+                  height: size + '%',
+                  backgroundColor: "#"+(color[itemIndex][0]).toString(16)+(color[itemIndex][1]).toString(16)+(color[itemIndex][2]).toString(16)
                   // div:hover {backgroundColor: '#ff4500'}
                   };
 

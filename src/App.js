@@ -18,8 +18,12 @@ class App extends Component {
       data: data,
       view: ''
     });
-    // console.log(data);
   }
+
+  // componentDidMount(){
+  //   this.setcolor();
+  //   console.log(data);
+  // }
 
   handleViewsOption(){
     let view = this.refs.view.value;
@@ -48,6 +52,7 @@ class App extends Component {
           <button className='Button' onClick={this.handleViewsOption.bind(this)}>OK</button>
             <Chart
                 data={this.state.data}
+                view={this.state.view}
                 grouping={ (this.state.view === 'Bar') ? '' : 'stacked' }
             />
         </section>
