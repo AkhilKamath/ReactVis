@@ -55,8 +55,6 @@ class Chart extends Component {
     }
 
     let two_one_views = column ? [0,1] : [0];
-
-    let label = ["STUDENT_NAME", "STUDENT_PR_NO"];
     return(
       <div>
         <span>
@@ -97,13 +95,13 @@ class Chart extends Component {
                   //   }
 
                 return(
-                   <div className={ 'Chart--item ' + (this.props.grouping) } style={{ float: 'left' }}
+                   <div className={ 'Chart--item ' + (this.props.grouping) }
                           value={item.bits_priority_nbr}
                           style={style}
                           key={itemIndex}
                           id={i}
                           >
-                           <span className='tooltiptext' style={{opacity: 1}}>
+                           <span className='tooltiptext'>
                             <strong>Name:</strong> {item.name}
                             <br/>
                             <strong>PR Num:</strong> {item.bits_priority_nbr}

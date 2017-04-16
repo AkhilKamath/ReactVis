@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Chart from './Components/Chart';
 import ColumnsSample2 from './Components/ColumnsSample2';
+import Time from './Components/Time';
 var data = require('./data');
 class App extends Component {
 
@@ -42,12 +43,16 @@ class App extends Component {
     return (
       <div>
         <section>
+        <Time />
+        </section>
+
+        <section>
           <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 1</h4>
           <p style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>
           Priority Number {this.state.view} Chart <br/><br />
           { 
             this.state.view === 'Column' ?
-            <p>Column 1: STUDENT_NAME------Column 2: STUDENT_PR_NO</p> : ''
+            <p><strong>Column 1:</strong> STUDENT_NAME------<strong>Column 2:</strong> STUDENT_PR_NO</p> : ''
           }
           </p>
           <button className='Button' onClick={this.handleColumnOption.bind(this)} style={{width: "150px"}}>Column View</button>
@@ -58,7 +63,9 @@ class App extends Component {
                 grouping={ (this.state.view === 'Bar') ? '' : 'stacked' }
             />
         </section>
+        
         <hr/>
+        
         <section>
         <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 2</h4>
         <p style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>
@@ -66,6 +73,7 @@ class App extends Component {
         </p>
         <ColumnsSample2 />
         </section>
+
       </div>
     );
   }
