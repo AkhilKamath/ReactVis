@@ -7,19 +7,19 @@ class Donut extends Component {
 	static defaultProps = {
 		value: 0,
 		valuelabel: ["hours", "minutes", "seconds"],
-		size: 100,
+		size: 140,
 		strokewidth: 7
 	}
 
 	render() {
 
 		let index = this.props.index;
-		console.log(index);
-		console.log("SEP");
+		// console.log(index);
+		// console.log("SEP");
 		const halfsize = (this.props.size * 0.5);
 		const radius = halfsize - (this.props.strokewidth * 0.5);
 		const circumference = 2 * Math.PI * radius;
-		const strokeval = ((this.props.value * circumference) / 100);
+		const strokeval = ((this.props.value * circumference) / ((index === 0 ) ? 24 : 60 ));
 		const dashval = (strokeval + ' ' + circumference);
 
 		const trackstyle = {strokeWidth: this.props.strokewidth};

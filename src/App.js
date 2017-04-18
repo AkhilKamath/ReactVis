@@ -9,22 +9,10 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      data: [],
+      data: data,
       view: ''
     }
   }
-
-  componentWillMount(){
-    this.setState({
-      data: data,
-      view: ''
-    });
-  }
-
-  // componentDidMount(){
-  //   this.setcolor();
-  //   console.log(data);
-  // }
 
   handleColumnOption(){
     this.setState({
@@ -43,11 +31,12 @@ class App extends Component {
     return (
       <div>
         <section>
+        <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 1</h4>
         <Time />
         </section>
 
         <section>
-          <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 1</h4>
+          <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 2</h4>
           <p style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>
           Priority Number {this.state.view} Chart <br/><br />
           { 
@@ -67,7 +56,7 @@ class App extends Component {
         <hr/>
         
         <section>
-        <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 2</h4>
+        <h4 style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>Sample 3</h4>
         <p style={{fontFamily: 'sans-serif', marginLeft: '10px'}}>
         Add empty columns
         </p>

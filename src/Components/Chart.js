@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../Css/Chart.css';
-// import Bar from './Bar';
-// import Column from './Column';
-// var view;
+
 class Chart extends Component {
 
   constructor(){
@@ -79,7 +77,7 @@ class Chart extends Component {
                 var size = ( bar ? (item.bits_priority_nbr / (stacked ? sum : max) * 100) : ( 100 / data.length ) );
                 var style = {
                   // opacity: (item.bits_priority_nbr/max + .25),
-                  zIndex: item.bits_priority_nbr,
+                  // zIndex: item.bits_priority_nbr,
                   opacity: (i === 1) ? (1 - (item.bits_priority_nbr/max) + .10) : 1,
                   height: size + '%',
                   backgroundColor: ( column ? ((i === 1) ? "red" : "#"+(color[itemIndex][0]).toString(16)+(color[itemIndex][1]).toString(16)+(color[itemIndex][2]).toString(16)) : 'red')
