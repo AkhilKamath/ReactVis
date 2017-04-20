@@ -19,6 +19,40 @@
 	border: 1px solid white;
 }
 
+.Histogram--item .tooltiptext{
+  visibility: hidden;
+  width: 30px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: 11px;
+  font-family: sans-serif;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  bottom: 100%;
+  left: 10%;
+  margin-left: -5px;
+  margin-bottom: 10px;
+  opacity: .9;
+}
+.Histogram--item .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+.Histogram--item:hover {
+  background-color: #dddfff;
+}
+.Histogram--item:hover .tooltiptext {
+  visibility: visible;
+}
+
 .Histogram--label {
 	display: inline-block;
 	flex: 1;

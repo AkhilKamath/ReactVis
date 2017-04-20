@@ -45,6 +45,9 @@ class Histogram extends Component {
 			}
 			return (
 					<div className='Histogram--item' key={alphabet_labels[index]} style={style} >
+						<span className='tooltiptext'>
+                            {f}
+                        </span>
 					</div>
 					);
 		})
