@@ -10,6 +10,7 @@
 }
 .Button {
   height: 35px;
+  display: inline-block;
   background-color: #7ec0ee;
   text-align: center;
   font-family: sans-serif;

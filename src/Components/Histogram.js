@@ -12,12 +12,10 @@ class Histogram extends Component {
 	}
 
 	render() {
-		let aa = 50;
 		let data = this.props.data;
 		let alphabet_labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
 						 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 		let frequency = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-		let size = [];
 		let max = 0, maxIndex;
 		let histogram_items = [];
 		let xAxisLabel = [];
@@ -25,7 +23,9 @@ class Histogram extends Component {
 			alphabet_labels.map( (alpha, index) => {
 				if( alpha === d.name[0])
 					frequency[index]++ ;
+				return null;
 			})
+			return null;
 		});
 		xAxisLabel = alphabet_labels.map( alpha => {
 			return (<div className='Histogram--label'>
@@ -45,7 +45,6 @@ class Histogram extends Component {
 			}
 			return (
 					<div className='Histogram--item' key={alphabet_labels[index]} style={style} >
-						
 					</div>
 					);
 		})

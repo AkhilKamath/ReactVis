@@ -14,11 +14,10 @@ class App extends Component {
     }
   }
 
-  handleColumnOption(){
+  handleColumnOption() {
     this.setState({
       view: "Column"
     });
-    console.log(this.state);
   }
 
   handleBarOption() {
@@ -51,8 +50,9 @@ class App extends Component {
           }
           </p>
           <button className='Button' onClick={this.handleColumnOption.bind(this)} style={{width: "150px"}}>Column View</button>
-          <button className='Button' onClick={this.handleBarOption.bind(this)} style={{width: "150px"}}>Bar View</button>
           <button className='Button' onClick={this.handleHistogramOption.bind(this)} style={{width: "200px"}}>Histogram View</button>
+          <button className='Button' onClick={this.handleBarOption.bind(this)} style={{width: "150px"}}>Bar View</button>
+          
           <Chart
               data={this.state.data}
               view={this.state.view}
