@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Histogram from './Histogram';
 import '../Css/Chart.css';
 
 class Chart extends Component {
@@ -43,6 +44,7 @@ class Chart extends Component {
     let data = this.state.data;
     let bar = this.props.view === 'Bar' ? true : false;
     let column = this.props.view === 'Column' ? true : false; 
+    let histogram = this.props.view === 'Histogram' ? true : false;
     let stacked = this.props.grouping === 'stacked' ? true : false;
     let max =0;
     let sum = 0;
@@ -64,55 +66,62 @@ class Chart extends Component {
         <span style={ { padding: "30px" } }>
           <strong style={{fontFamily: 'sans-serif'}}>Total Students:</strong> {this.state.data.length}
           </span>
-        <div className='Chart'>
-          {
-            two_one_views.map( i => {
-              return (
-                
-                <div className={ 'Chart--serie ' + (this.props.grouping) } 
-                 style={{ height: 350}}>
-            {data.map((item, itemIndex) => {
-                // console.log(item);
-                // console.log(itemIndex);
-                var size = ( bar ? (item.bits_priority_nbr / (stacked ? sum : max) * 100) : ( 100 / data.length ) );
-                var style = {
-                  // opacity: (item.bits_priority_nbr/max + .25),
-                  // zIndex: item.bits_priority_nbr,
-                  opacity: (i === 1) ? (1 - (item.bits_priority_nbr/max) + .10) : 1,
-                  height: size + '%',
-                  backgroundColor: ( column ? ((i === 1) ? "red" : "#"+(color[itemIndex][0]).toString(16)+(color[itemIndex][1]).toString(16)+(color[itemIndex][2]).toString(16)) : 'red')
-                  // div:hover {backgroundColor: '#ff4500'}
-                  };
+        {
+         
+         histogram ? <Histogram data={this.state.data}/> : 
+        
+          <div className='Chart'>
+              {
+                two_one_views.map( i => {
+                  return (
+                    
+                    <div className={ 'Chart--serie ' + (this.props.grouping) } 
+                     style={{ height: 350}}>
+                {
+                  data.map((item, itemIndex) => {
+                    // console.log(item);
+                    // console.log(itemIndex);
+                    var size = ( bar ? (item.bits_priority_nbr / (stacked ? sum : max) * 100) : ( 100 / data.length ) );
+                    var style = {
+                      // opacity: (item.bits_priority_nbr/max + .25),
+                      // zIndex: item.bits_priority_nbr,
+                      opacity: (i === 1) ? (1 - (item.bits_priority_nbr/max) + .10) : 1,
+                      height: size + '%',
+                      backgroundColor: ( column ? ((i === 1) ? "red" : "#"+(color[itemIndex][0]).toString(16)+(color[itemIndex][1]).toString(16)+(color[itemIndex][2]).toString(16)) : 'red')
+                      // div:hover {backgroundColor: '#ff4500'}
+                      };
 
 
-                  // if(i === 1){
-                  //     style = {
-                  //       opacity: (1 - (item.bits_priority_nbr/max) + .10),
-                  //       backgroundColor: "red"
-                  //     }
-                  //   }
+                      // if(i === 1){
+                      //     style = {
+                      //       opacity: (1 - (item.bits_priority_nbr/max) + .10),
+                      //       backgroundColor: "red"
+                      //     }
+                      //   }
 
-                return(
-                   <div className={ 'Chart--item ' + (this.props.grouping) }
-                          value={item.bits_priority_nbr}
-                          style={style}
-                          key={itemIndex}
-                          id={i}
-                          >
-                           <span className='tooltiptext'>
-                            <strong>Name:</strong> {item.name}
-                            <br/>
-                            <strong>PR Num:</strong> {item.bits_priority_nbr}
-                          </span>
-                      </div>
-                
-                      );
-            })}
+                    return(
+                       <div className={ 'Chart--item ' + (this.props.grouping) }
+                              value={item.bits_priority_nbr}
+                              style={style}
+                              key={itemIndex}
+                              id={i}
+                              >
+                               <span className='tooltiptext'>
+                                <strong>Name:</strong> {item.name}
+                                <br/>
+                                <strong>PR Num:</strong> {item.bits_priority_nbr}
+                              </span>
+                          </div>
+                    
+                          );
+                      })}
+                    </div>
+                    );
+                } )
+              }
+            
           </div>
-                );
-            } )
-          }
-        </div>
+      }
       </div>
       );
   }

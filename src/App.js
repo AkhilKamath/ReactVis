@@ -27,6 +27,12 @@ class App extends Component {
     });
   }
 
+  handleHistogramOption() {
+    this.setState({
+      view: "Histogram"
+    });
+  }
+
   render() {
     return (
       <div>
@@ -46,11 +52,14 @@ class App extends Component {
           </p>
           <button className='Button' onClick={this.handleColumnOption.bind(this)} style={{width: "150px"}}>Column View</button>
           <button className='Button' onClick={this.handleBarOption.bind(this)} style={{width: "150px"}}>Bar View</button>
-            <Chart
-                data={this.state.data}
-                view={this.state.view}
-                grouping={ (this.state.view === 'Bar') ? '' : 'stacked' }
-            />
+          <button className='Button' onClick={this.handleHistogramOption.bind(this)} style={{width: "200px"}}>Histogram View</button>
+          <Chart
+              data={this.state.data}
+              view={this.state.view}
+              grouping={ (this.state.view === 'Bar') ? '' : 'stacked' }
+          />
+
+            
         </section>
         
         <hr/>
