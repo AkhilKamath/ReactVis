@@ -63,7 +63,7 @@ class Chart extends Component {
         </select>
         <button className='Button' onClick={this.selectBranch.bind(this)}>OK</button>
         </span>
-        <span style={ { padding: "30px" } }>
+        <span style={ { padding: "10px" } }>
           <strong style={{fontFamily: 'sans-serif'}}>Total Students:</strong> {this.state.data.length}
           </span>
         {

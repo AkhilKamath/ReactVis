@@ -16,29 +16,26 @@ class Histogram extends Component {
 		let alphabet_labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
 						 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 		let frequency = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-		let max = 0, maxIndex;
+		
 		let histogram_items = [];
 		let xAxisLabel = [];
-		data.map(d => {
-			alphabet_labels.map( (alpha, index) => {
-				if( alpha === d.name[0])
-					frequency[index]++ ;
-				return null;
-			})
+
+		data.map( d => {
+			frequency[alphabet_labels.indexOf(d.name[0])]++ ;
 			return null;
-		});
+		})
+
+		let max = Math.max.apply(Math, frequency);
+		let maxIndex = frequency.indexOf(max);
+
+		console.log(frequency);
+
 		xAxisLabel = alphabet_labels.map( alpha => {
 			return (<div className='Histogram--label'>
 				{alpha}
 			</div>);
 		});
-		for (let i=0;i<frequency.length;i++)
-		{
-			if(max < frequency[i]){
-				max = frequency[i];
-				maxIndex = i;
-			}
-		}
+
 		histogram_items = frequency.map( (f, index)=> {
 			let style = {
 				height: (f/max * 100) + '%'
